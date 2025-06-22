@@ -6,7 +6,7 @@
   <a href="https://arxiv.org/abs/2504.07491"><img src="figures/logo.png" height="16" width="16" style="vertical-align:middle"><b> Tech Report</b></a>  |  
   <a href="https://huggingface.co/collections/moonshotai/kimi-vl-a3b-67f67b6ac91d3b03d382dd85"><img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" height="16" width="16" style="vertical-align:middle"><b> HuggingFace</b>
   </a> |
-  <a href="https://huggingface.co/spaces/moonshotai/Kimi-VL-A3B-Thinking/">💬 Chat Web</a>
+  <a href="https://huggingface.co/spaces/moonshotai/Kimi-VL-A3B-Thinking/">💬<b>Chat with Latest Kimi-VL</b></a>
 </div>
 
 
@@ -24,6 +24,16 @@ Kimi-VL also advances the pareto frontiers of multimodal models in processing lo
 
 Building on this foundation, we introduce an advanced long-thinking variant: **Kimi-VL-Thinking**. Developed through long chain-of-thought (CoT) supervised fine-tuning (SFT) and reinforcement learning (RL), this model exhibits strong long-horizon reasoning capabilities. It achieves scores of 61.7 on MMMU, 36.8 on MathVision, and 71.3 on MathVista while maintaining the compact 2.8B activated LLM parameter footprint, setting a new standard for efficient yet capable multimodal **thinking** models.
 
+
+<i>Besides original model variants, we also provide a new [Kimi-VL-A3B-Thinking-2506](https://huggingface.co/moonshotai/Kimi-VL-A3B-Thinking-2506) variant with several new or improved abilities:
+- It Thinks Smarter while Consuming Less Tokens: The 2506 version reaches better accuracy on multimodal reasoning benchmarks: 56.9 on MathVision (+20.1), 80.1 on MathVista (+8.4), 46.3 on MMMU-Pro (+3.2), 64.0 on MMMU (+2.1), while in average reducing 20% thinking length.
+- It Sees Clearer with Thinking: Unlike the previous version that specializes on thinking tasks, the 2506 version can also achieve the same or even better ability on general visual perception and understanding, e.g. MMBench-EN-v1.1 (84.4), MMStar (70.4), RealWorldQA (70.0), MMVet (78.4) compared to the original non-thinking version (Kimi-VL-A3B-Instruct).
+- It Extends to Video Scenarios: The new 2506 version also improves on video reasoning and understanding benchmarks. It sets new state-of-the-art for open-source models on VideoMMMU (65.2), while also retaining good ability on general video understanding (71.9 on Video-MME).
+- It Extends to Higher Resolution: The new 2506 version supports 3.2 million total pixels in a single image (1792x1792), 4X compared to the original release. This leads to non-trivial improvements on high-resolution perception and OS-agent grounding benchmarks: 83.2 on V* Benchmark (without extra tools), 52.8 on ScreenSpot-Pro, 52.5 on OSWorld-G (full set with refusal).
+</i>
+
+
+
 ## 2. Architecture
 
 The model adopts an MoE language model, a native-resolution visual encoder (MoonViT), and an MLP projector, as illustrated in the following image.
@@ -40,7 +50,7 @@ The model adopts an MoE language model, a native-resolution visual encoder (Moon
 
 ## 4. Model Variants
 
-🤗 For general multimodal perception and understanding, OCR, long video and long document, video perception, and OS-agent uses, we recommend `Kimi-VL-A3B-Instruct` for efficient inference; our new thinking version, `Kimi-VL-A3B-Thinking-2506` also supports better multimodal perception, long video and long document and OS-agent grounding while obtaining good math reasoning abilities. See [this blog](https://huggingface.co/blog/moonshotai/kimi-vl-a3b-thinking-2506) for more information.
+🤗 For common general multimodal perception and understanding, OCR, long video and long document, video perception, and OS-agent uses, we recommend `Kimi-VL-A3B-Instruct` for efficient inference; meanwhile, our new thinking version, `Kimi-VL-A3B-Thinking-2506` also has excellent multimodal perception, long video and long document and OS-agent grounding abilities while achieving better multimodal reasoning skills. See [this blog](https://huggingface.co/blog/moonshotai/kimi-vl-a3b-thinking-2506) for more information.
 
 <div align="center">
 
