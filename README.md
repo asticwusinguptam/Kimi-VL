@@ -6,7 +6,7 @@
   <a href="https://arxiv.org/abs/2504.07491"><img src="figures/logo.png" height="16" width="16" style="vertical-align:middle"><b> Tech Report</b></a>  |  
   <a href="https://huggingface.co/collections/moonshotai/kimi-vl-a3b-67f67b6ac91d3b03d382dd85"><img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" height="16" width="16" style="vertical-align:middle"><b> HuggingFace</b>
   </a> |
-  <a href="https://huggingface.co/spaces/moonshotai/Kimi-VL-A3B-Thinking/">💬<b>Chat with Latest Kimi-VL (2506)</b></a>
+  <a href="https://huggingface.co/spaces/moonshotai/Kimi-VL-A3B-Thinking/"><b>Chat with Latest Kimi-VL (2506)</b></a>
 </div>
 
 
@@ -44,7 +44,7 @@ The model adopts an MoE language model, a native-resolution visual encoder (Moon
 
 ## 3. News
 
-- 2025.06.21: Release of Kimi-VL-A3B-Thinking-2506: [Tech Blog \& Cookbook](https://huggingface.co/blog/moonshotai/kimi-vl-a3b-thinking-2506), [🤗 Hugging Face](https://huggingface.co/moonshotai/Kimi-VL-A3B-Thinking-2506)
+- 2025.06.21: Release of Kimi-VL-A3B-Thinking-2506: [Tech Blog \\& Cookbook](https://huggingface.co/blog/moonshotai/kimi-vl-a3b-thinking-2506), [🤗 Hugging Face](https://huggingface.co/moonshotai/Kimi-VL-A3B-Thinking-2506)
 - 2025.04.15: [vLLM](https://github.com/vllm-project/vllm) has supported Kimi-VL deployment. See [#16387](https://github.com/vllm-project/vllm/pull/16387) for details.
 - 2025.04.14: [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) has supported Kimi-VL finetuning. See [#7719](https://github.com/hiyouga/LLaMA-Factory/pull/7719) for details.
 
@@ -233,7 +233,7 @@ processor = AutoProcessor.from_pretrained(model_path, trust_remote_code=True)
 image_path = "./figures/demo.png"
 image = Image.open(image_path)
 messages = [
-    {"role": "user", "content": [{"type": "image", "image": image_path}, {"type": "text", "text": "What is the dome building in the picture? Think step by step."}]}
+    {"role": "user", "content": [{"type": "image", "image": image_path}, {"type": "text", "text": "What is the dome building in the picture? Think step by one step."}]}
 ]
 text = processor.apply_chat_template(messages, add_generation_prompt=True, return_tensors="pt")
 outputs = llm.generate([{"prompt": text, "multi_modal_data": {"image": image}}], sampling_params = SamplingParams(max_tokens=512))
@@ -310,3 +310,6 @@ print(completion.choices[0].message)
 }
 ```
 
+1. related project [Qwen2.5-VL](https://github.com/ZBXallen/Qwen2.5-VL)
+2. related project [DeepSeek-VL2](https://github.com/deepseek-ai/DeepSeek-VL2)
+3. related project [Aria](https://github.com/rhymes-ai/Aria)
